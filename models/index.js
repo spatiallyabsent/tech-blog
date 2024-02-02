@@ -1,7 +1,7 @@
 const Sequelize = require('../config/connection');
 const Post = require('./Post');
 const User = require('./User');
-const UserComment = require('./UserComment');
+const UserComment = require('./UserComments');
 
 // here we need to define associations between models (delete once done)
 
