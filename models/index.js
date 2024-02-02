@@ -9,7 +9,7 @@ Post.belongsTo(User, { foreignKey: 'userId' });
 UserComment.belongsTo(User, { foreignKey: 'userId' });
 
 module.exports = {
-    sequelize,
+    sequelize: Sequelize,
     Post,
     User,
     UserComment
