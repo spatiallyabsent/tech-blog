@@ -1,14 +1,14 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Your Task",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/index.js"
   },
-  "author": "",
+  "author": "SpatiallyAbsent",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -20,5 +20,17 @@
     "handlebars": "^4.7.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spatiallyabsent/tech-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "sequelize"
+  ],
+  "bugs": {
+    "url": "https://github.com/spatiallyabsent/tech-blog/issues"
+  },
+  "homepage": "https://github.com/spatiallyabsent/tech-blog#readme"
 }
