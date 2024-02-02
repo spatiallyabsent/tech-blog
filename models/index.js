@@ -3,10 +3,13 @@ const Post = require('./Post');
 const User = require('./User');
 const UserComment = require('./UserComments');
 
-// here we need to define associations between models (delete once done)
+User.hasMany(Post, { foreignKey: 'userId' });
+User.hasMany(UserComment, { foreignKey: 'userId' });
+Post.belongsTo(User, { foreignKey: 'userId' });
+UserComment.belongsTo(User, { foreignKey: 'userId' });
 
 module.exports = {
-    sequelize, 
+    sequelize,
     Post,
     User,
     UserComment
