@@ -1,8 +1,12 @@
-const { Model, DataTyoes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const Sequelize = require('../config/connection');
+const sequelize = require('../config/connection');
 
-class User extends Model { }
+class User extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+ }
 
 User.init({
     id: {
@@ -28,12 +32,9 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            len: {
-                args: [8, Infinity],
-                msg: 'Password must be at least 8 characters long'
-            },
+            len: [8, Infinity], // Minimum length of 8 characters
             containsSymbol(value) {
-                if (!/\W/.test(value)) {
+                if (!/[\W_]/.test(value)) {
                     throw new Error('Password must contain at least one symbol');
                 }
             }

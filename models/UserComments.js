@@ -1,5 +1,5 @@
-const { Model, DataTyoes } = require('sequelize');
-const Sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class UserComment extends Model { }
 
@@ -12,7 +12,7 @@ UserComment.init({
     },
     content: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
     },
     userId: {
         type: DataTypes.INTEGER,
@@ -21,8 +21,18 @@ UserComment.init({
             model: 'user',
             key: 'id'
         }
-    }
-}, {
+    },
+        postId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'post',
+                key: 'id',
+            },
+        },
+
+    },
+ {
     sequelize,
     modelName: 'user_comment',
     timestamps: false,
