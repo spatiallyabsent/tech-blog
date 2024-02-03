@@ -44,12 +44,12 @@ User.init({
     {
         hooks: {
             beforeCreate: async (user) => {
-                user.password = await bcrypt.hash(user.password, 10);
+                user.password = await bcrypt.hash(user.password, 10); //for naming convention perhaps use newUserData instead of user
                 return user;
             },
             beforeUpdate: async (user) => {
                 if (user.changed('password')) {
-                    user.password = await bcrypt.hash(user.password, 10);
+                    user.password = await bcrypt.hash(user.password, 10); //may want to change user to updatedUserData for naming convention
                 }
                 return user;
             },

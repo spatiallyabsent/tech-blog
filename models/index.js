@@ -9,8 +9,8 @@ Post.belongsTo(User, { foreignKey: 'userId' });
 User.hasMany(UserComment, { foreignKey: 'userId' });
 UserComment.belongsTo(User, { foreignKey: 'userId' });
 
-Post.hasMany(UserComment, {foreignKey: 'post_id'});
-UserComment.belongsTo(Post, {foreignKey: 'post_id'});
+Post.hasMany(UserComment, {foreignKey: 'postId'}); //changed from post_id if issues later
+UserComment.belongsTo(Post, {foreignKey: 'postId'});
 
 module.exports = {
     sequelize,
